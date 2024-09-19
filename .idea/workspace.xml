@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe0bbe91-220a-4e6c-9691-2cc0bbb75c8e" name="Changes" comment="create player model">
-      <change afterPath="$PROJECT_DIR$/repositorys/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/repositorys/create_and_delete_tables_repo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/repositorys/player_repository.py" afterDir="false" />
+    <list default="true" id="fe0bbe91-220a-4e6c-9691-2cc0bbb75c8e" name="Changes" comment="create CRUD options for data base">
+      <change afterPath="$PROJECT_DIR$/services/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/data_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ratio_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/sid_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositorys/create_and_delete_tables_repo.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositorys/create_and_delete_tables_repo.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +40,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.data_service.executor": "Run",
     "Python.requets.executor": "Run",
+    "Python.sid_service.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
@@ -49,6 +53,35 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\USER\PycharmProjects\nba_plyers" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="sid_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="nba_plyers" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/services" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/services/sid_service.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.sid_service" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -98,7 +131,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726734208552</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="create CRUD options for data base">
+      <option name="closed" value="true" />
+      <created>1726738334630</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1726738334630</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -106,6 +147,7 @@
     <MESSAGE value="create nba api request" />
     <MESSAGE value="create config" />
     <MESSAGE value="create player model" />
-    <option name="LAST_COMMIT_MESSAGE" value="create player model" />
+    <MESSAGE value="create CRUD options for data base" />
+    <option name="LAST_COMMIT_MESSAGE" value="create CRUD options for data base" />
   </component>
 </project>

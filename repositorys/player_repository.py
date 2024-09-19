@@ -3,11 +3,11 @@ from repositorys.create_and_delete_tables_repo import get_db_connection
 from typing import List
 
 
-def create_player(player: Player, season: str) -> int:
+def create_player(player: Player, season: int) -> int:
     connection = get_db_connection()
     cursor = connection.cursor()
     cursor.execute(
-        f"""INSERT INTO {season} (
+        f"""INSERT INTO nba (
         name,
         team,
         position,
@@ -17,8 +17,9 @@ def create_player(player: Player, season: str) -> int:
         shooting_3,
         minutes,
         at_ratio,
-        ppg_ratio
-         ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING id""",
+        ppg_ratio,
+        season
+         ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING id""",
         (
             player.name,
             player.team,
@@ -29,7 +30,8 @@ def create_player(player: Player, season: str) -> int:
             player.shooting_3,
             player.minutes,
             player.at_ratio,
-            player.ppg_ratio
+            player.ppg_ratio,
+            season
         )
     )
     new_id = cursor.fetchone()['id']
@@ -42,7 +44,7 @@ def create_player(player: Player, season: str) -> int:
 def find_all_players(season: str) -> List[Player]:
     connection = get_db_connection()
     cursor = connection.cursor()
-    cursor.execute(f"SELECT * FROM {season}")
+    cursor.execute(f"SELECT * FROM nba WHERE season = %s",(season,))
     result = cursor.fetchall()
     players = [Player(**player) for player in result]
     connection.commit()
@@ -55,7 +57,7 @@ def update_player(player: Player, season: str) -> Player:
     connection = get_db_connection()
     cursor = connection.cursor()
     cursor.execute(f"""
-    UPDATE {season} SET 
+    UPDATE nba SET 
         name = %s,
         team = %s,
         position = %s,
@@ -66,7 +68,7 @@ def update_player(player: Player, season: str) -> Player:
         minutes = %s,
         at_ratio = %s,
         ppg_ratio = %s
-        WHERE id = %s RETURNING *
+        WHERE id = %s AND season = %s"RETURNING *
     """,
        (
            player.name,
@@ -79,7 +81,8 @@ def update_player(player: Player, season: str) -> Player:
            player.minutes,
            player.at_ratio,
            player.ppg_ratio,
-           player.id
+           player.id,
+           season
        )
     )
     updated_player = cursor.fetchall()
@@ -90,11 +93,9 @@ def update_player(player: Player, season: str) -> Player:
 
 
 def delete_player(player_id: int):
-    seasons = ["2024", "2023", "2022"]
     connection = get_db_connection()
     cursor = connection.cursor()
-    for season in seasons:
-        cursor.execute(f'DELETE FROM {season} WHERE id = %s ', player_id)
+    cursor.execute(f'DELETE FROM nba WHERE id = %s ', player_id)
     connection.commit()
     cursor.close()
     connection.close()
