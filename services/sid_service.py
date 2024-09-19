@@ -2,7 +2,6 @@ from models.player_model import Player
 from services.ratio_service import at_ratio,points_per_game,ppg_ratio
 from repositorys.create_and_delete_tables_repo import create_players_table, drop_all_tables
 from repositorys.player_repository import create_player
-from services.data_service import filtered_data,seasons
 
 
 def sid(data):
@@ -23,6 +22,5 @@ def sid(data):
                 ppg_ratio=points_per_game(play["twoFg"], play["threeFg"], play["games"]) / ppg_ratio(data))
             create_player(player, key)
 
-sid(filtered_data)
 
 
